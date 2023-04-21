@@ -6,13 +6,13 @@
 
 ### AULAS
 
-- Aula 01
-- Aula 02
+- [Aula 01 - Fundamentos do Node.js](https://github.com/paulopitta97/rocketseat-ignite-node/tree/main/aula-01-fundamentos-node)
+- [Aula 02 - Criando API REST com Node.js](https://github.com/paulopitta97/rocketseat-ignite-node/tree/main/aula-02-api-rest-node)
 
 ### DESAFIOS
 
-- Desafio 01
-- Desafio 02
+- [Desafio 01 - Desafio: Fundamentos do Node.js](https://github.com/paulopitta97/ignite-node-desafio-01-tasks)
+- [Desafio 02 - Desafio: Daily Diet API](DOING)
 
 ### 📝 Licença
 
