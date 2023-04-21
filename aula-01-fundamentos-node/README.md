@@ -1,0 +1,3 @@
+## Instalações
+
+- HTTPie (Chocolatey)
