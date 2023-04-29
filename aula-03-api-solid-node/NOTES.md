@@ -36,6 +36,10 @@
 - `docker compose down` -> (stop and delete)
 - ``
 
+## TOPICO 2 - CONTINUAÇÃO
+
+- `npx prisma migrate deploy` -> para rodar as migrations existentes em produção
+
 ## TOPICO 3 - 
 - ``
 - ``
