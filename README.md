@@ -12,7 +12,7 @@
 ### DESAFIOS
 
 - [Desafio 01 - Desafio: Fundamentos do Node.js](https://github.com/paulopitta97/ignite-node-desafio-01-tasks)
-- [Desafio 02 - Desafio: Daily Diet API](DOING)
+- [Desafio 02 - Desafio: Daily Diet API](https://github.com/paulopitta97/ignite-node-desafio-02-daily-diet)
 
 ### 📝 Licença
 
