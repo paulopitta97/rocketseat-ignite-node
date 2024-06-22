@@ -74,9 +74,9 @@
 
 ## TOPICO 6 - CONTROLLERS & TESTES E2E
 
-- ``
-- ``
-- ``
+- `npm i @fastify/jwt`
+- `cd prisma\vitest-environment-prisma\` e `npm link`
+- `cd ../../ && npm link vitest-environment-prisma`
 - ``
 
 ## TOPICO 7 - REFRESH TOKEN & RBAC
