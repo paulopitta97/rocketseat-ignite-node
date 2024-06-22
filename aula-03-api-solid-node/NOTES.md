@@ -77,7 +77,7 @@
 - `npm i @fastify/jwt`
 - `cd prisma\vitest-environment-prisma\` e `npm link`
 - `cd ../../ && npm link vitest-environment-prisma`
-- ``
+- `npm i -D npm-run-all`
 
 ## TOPICO 7 - REFRESH TOKEN & RBAC
 
