@@ -8,6 +8,7 @@
 
 - [Aula 01 - Fundamentos do Node.js](https://github.com/paulopitta97/rocketseat-ignite-node/tree/main/aula-01-fundamentos-node)
 - [Aula 02 - Criando API REST com Node.js](https://github.com/paulopitta97/rocketseat-ignite-node/tree/main/aula-02-api-rest-node)
+- [Aula 03 - API Node.js com SOLID](https://github.com/paulopitta97/rocketseat-ignite-node/tree/main/aula-03-api-solid-node)
 
 ### DESAFIOS
 
