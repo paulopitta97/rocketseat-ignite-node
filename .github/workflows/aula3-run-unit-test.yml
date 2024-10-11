@@ -1,0 +1,29 @@
+name: Run Unit Tests
+
+on: [push]
+
+jobs:
+  run-unit-tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Navigate to the subdirectory
+        run: cd aula-03-api-solid-node
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.11.0
+          cache: 'npm'
+
+      - name: Instala dependencias
+        run: npm ci
+        working-directory: ./aula-03-api-solid-node
+
+      - name: Executa os testes
+        run: npm run test
+        working-directory: ./aula-03-api-solid-node
