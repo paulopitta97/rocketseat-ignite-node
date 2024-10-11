@@ -83,7 +83,7 @@
 
 ## TOPICO 7 - REFRESH TOKEN & RBAC
 
-- ``
+- `npm i @fastify/cookie`
 - ``
 - ``
 - ``
