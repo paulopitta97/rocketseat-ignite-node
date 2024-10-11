@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 20.11.0
           cache: 'npm'
+          cache-dependency-path: ./aula-03-api-solid-node/package-lock.json
 
       - name: Instala dependencias
         run: npm ci
