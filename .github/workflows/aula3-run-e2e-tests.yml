@@ -1,0 +1,45 @@
+name: Run E2E Tests
+
+on:
+  pull_request:
+    paths:
+      - 'aula-03-api-solid-node/**'
+
+jobs:
+  run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+    services:
+      api-solid-pg:
+        image: bitnami/postgresql:latest
+        ports:
+          - 5432:5432
+        environment:
+          - POSTGRESQL_USERNAME=docker
+          - POSTGRESQL_PASSWORD=docker
+          - POSTGRESQL_DATABASE=apisolid
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Navigate to the subdirectory
+        run: cd aula-03-api-solid-node
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.11.0
+          cache: 'npm'
+          cache-dependency-path: ./aula-03-api-solid-node/package-lock.json
+
+      - name: Instala dependencias
+        run: npm ci
+        working-directory: ./aula-03-api-solid-node
+
+      - name: Executa os testes E2E
+        run: npm run test:e2e
+        env:
+          JWT_SECRET: testing-secret
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
+        working-directory: ./aula-03-api-solid-node
