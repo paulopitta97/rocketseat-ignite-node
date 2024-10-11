@@ -12,8 +12,9 @@
 
 ### DESAFIOS
 
-- [Desafio 01 - Desafio: Fundamentos do Node.js](https://github.com/paulopitta97/ignite-node-desafio-01-tasks)
+- [Desafio 01 - Desafio: Tasks API](https://github.com/paulopitta97/ignite-node-desafio-01-tasks)
 - [Desafio 02 - Desafio: Daily Diet API](https://github.com/paulopitta97/ignite-node-desafio-02-daily-diet)
+- [Desafio 03 - Desafio: FindAFriend API](https://github.com/paulopitta97/ignite-node-desafio-03-find-a-friend)
 
 ### 📝 Licença
 
