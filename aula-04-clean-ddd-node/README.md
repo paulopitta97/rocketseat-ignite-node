@@ -3,3 +3,4 @@
 - `npx tsc --init` // target mudar para es2020
 - `npm i vitest -D`
 - `npx vitest run`
+- `npm i dayjs`
