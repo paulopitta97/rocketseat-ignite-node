@@ -4,3 +4,4 @@
 - `npm i vitest -D`
 - `npx vitest run`
 - `npm i dayjs`
+- `npm i vite-tsconfig-paths -D`
