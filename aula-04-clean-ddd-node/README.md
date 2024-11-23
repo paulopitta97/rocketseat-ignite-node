@@ -10,3 +10,7 @@
 
 - `npm i eslint @rocketseat/eslint-config -D`
 - `npm i eslint-plugin-vitest-globals -D`
+- `npm i @faker-js/faker -D`
+- ``
+- ``
+- ``
