@@ -14,3 +14,6 @@
 - ``
 - ``
 - ``
+
+// prefixo GET quando quiser retornar um único objeto/dado
+// prefixo FETCH quando quiser retornar uma lista
