@@ -44,5 +44,15 @@
 
 
 - `npx tsc --noEmit` -> para ver erros TS
+
+> Subdomínios
+
+- `Core`: o que dá dinheiro
+    - Exemplo: Compra, Catálogo, Pagamento, Entrega, Faturamento (NFE)
+- `Supporting`: dá suporte para o core funcionar
+    - Exemplo: Estoque
+- `Generic`: necessários, porém menos importantes
+    - Exemplo: Notificação ao cliente, Chat
+
 - ``
 - ``
