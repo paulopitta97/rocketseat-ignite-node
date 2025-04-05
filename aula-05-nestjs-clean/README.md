@@ -2,7 +2,14 @@
 - `pnpm i eslint @rocketseat/eslint-config -D`
 - `pnpm run start:dev`
 - `pnpm run lint`
-
+- `docker-compose up -d`
+- `pnpm i prisma -D`
+- `pnpm i @prisma/client`
+- `pnpm prisma init`
+- `pnpm prisma migrate dev`
+- `pnpm prisma studio`
+- ``
+- ``
 
 
 
