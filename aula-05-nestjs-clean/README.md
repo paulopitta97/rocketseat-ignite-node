@@ -8,6 +8,14 @@
 - `pnpm prisma init`
 - `pnpm prisma migrate dev`
 - `pnpm prisma studio`
+- `pnpm i bcryptjs`
+- `pnpm i @types/bcryptjs`
+- ``
+- ``
+- ``
+- ``
+- ``
+- ``
 - ``
 - ``
 
