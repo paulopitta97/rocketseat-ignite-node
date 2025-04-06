@@ -10,8 +10,8 @@
 - `pnpm prisma studio`
 - `pnpm i bcryptjs`
 - `pnpm i @types/bcryptjs`
-- ``
-- ``
+- `pnpm i zod`
+- `pnpm i zod-validation-error`
 - ``
 - ``
 - ``
