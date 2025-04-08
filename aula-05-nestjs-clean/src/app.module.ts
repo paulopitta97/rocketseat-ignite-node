@@ -1,10 +1,22 @@
 import { Module } from '@nestjs/common'
 import { PrismaService } from './prisma/prisma.service'
 import { CreateAccountController } from './controllers/create-account.controller'
+import { ConfigModule } from '@nestjs/config'
+import { envSchema } from './env'
+import { AuthenticateController } from './controllers/authenticate.controller'
+import { AuthModule } from './auth/auth.module'
+import { CreateQuestionController } from './controllers/create-question.controller'
+import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions.controller'
 
 @Module({
-  imports: [],
-  controllers: [CreateAccountController],
+  imports: [
+    ConfigModule.forRoot({
+    validate: env => envSchema.parse(env),
+    isGlobal: true, // para ter o configmodule em todos os apps
+  }),
+  AuthModule
+],
+  controllers: [CreateAccountController, AuthenticateController, CreateQuestionController, FetchRecentQuestionsController],
   providers: [PrismaService],
 })
 export class AppModule {}

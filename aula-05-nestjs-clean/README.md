@@ -12,6 +12,27 @@
 - `pnpm i @types/bcryptjs`
 - `pnpm i zod`
 - `pnpm i zod-validation-error`
+- `pnpm i @nestjs/config`
+- `pnpm i @nestjs/passport @nestjs/jwt`
+
+
+## Gerando Chave Privada e Pública RSA256
+- `openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048`
+- `openssl rsa -pubout -in private_key.pem -out public_key.pem`
+
+### Convertendo para base64 no GitBash
+- `base64 -w 0 private_key.pem > private_key.b64.txt`
+- `base64 -w 0 public_key.pem > public_key.b64.txt`
+
+- `wsl --shutdown`
+
+- `pnpm i passport-jwt`
+- `pnpm i @types/passport-jwt -D`
+- ``
+- ``
+- ``
+- ``
+- ``
 - ``
 - ``
 - ``
