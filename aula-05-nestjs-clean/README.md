@@ -28,12 +28,14 @@
 
 - `pnpm i passport-jwt`
 - `pnpm i @types/passport-jwt -D`
+
+## Configuração Testes
+- `pnpm i vitest unplugin-swc @swc/core @vitest/coverage-v8 -D`
+- `pnpm i vite-tsconfig-paths -D`
+- `pnpm i dotenv -D` - pois o `setup-e2e.ts` somente é usado no Vitest/Testes.
 - ``
-- ``
-- ``
-- ``
-- ``
-- ``
+- `pnpm i supertest -D`
+- `pnpm i @types/supertest -D`
 - ``
 - ``
 - ``
