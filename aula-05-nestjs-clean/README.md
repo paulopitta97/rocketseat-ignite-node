@@ -45,7 +45,7 @@
 - `pnpm lint`
 - `pnpm run test`
 - ``
-- ``
+- `pnpm add vite-tsconfig-paths@4.2.1 -D` -> Downgrade do `vite-tsconfig-paths` para versão compatível com CommonJS
 - ``
 - ``
 - ``
