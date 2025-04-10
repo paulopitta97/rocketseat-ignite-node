@@ -37,11 +37,18 @@
 - `pnpm i supertest -D`
 - `pnpm i @types/supertest -D`
 - ``
-- ``
-- ``
-- ``
-- ``
 
+## Dominio
+- `pnpm tsc --noEmit`
+- `pnpm i -D @faker-js/faker`
+- `pnpm i dayjs`
+- `pnpm lint`
+- `pnpm run test`
+- ``
+- ``
+- ``
+- ``
+- ``
 
 
 
