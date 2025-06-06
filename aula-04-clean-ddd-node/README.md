@@ -1,3 +1,50 @@
+# 🧼 Clean DDD API – Node.js com Domain-Driven Design
+
+Este projeto é uma aplicação de estudo sobre **Clean Architecture** e **Domain-Driven Design (DDD)** com **Node.js + TypeScript**, onde a proposta é estruturar uma API com forte separação de responsabilidades, usando princípios de arquitetura limpa, camadas independentes e regras de negócio centralizadas.
+
+---
+
+## ✅ Funcionalidades
+
+A aplicação serve como base para projetos que precisam de:
+
+- Estruturação em camadas seguindo DDD (Domain, Application, Infra)
+- Regras de negócio desacopladas de infraestrutura
+- Repositórios e entidades bem definidos
+- Camada de comunicação HTTP com rotas organizadas
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- **Node.js** com **TypeScript**
+- **Vitest** para testes
+- **Arquitetura Clean + DDD**
+- **In-Memory Database** para simulação de persistência
+
+---
+
+## ▶️ Como Executar o Projeto
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/paulopitta97/rocketseat-ignite-node.git
+cd rocketseat-ignite-node/aula-04-clean-ddd-node
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Rodando os Testes:
+
+```bash
+npm run test
+```
+
 ### Comandos
 
 - `npm init -y`
@@ -17,21 +64,22 @@
 ### Anotações
 
 - Prefixos
-> GET quando quiser retornar um único objeto/dado
-> FETCH quando quiser retornar uma lista
+    - GET quando quiser retornar um único objeto/dado
+    - FETCH quando quiser retornar uma lista
 
 - Conceitos
-> LEFT (failure) = quando o fluxo volta pra esquerda
-> RIGHT (success) = quando o fluxo continua pra direita
+    - LEFT (failure) = quando o fluxo volta pra esquerda
+    - RIGHT (success) = quando o fluxo continua pra direita
 
 - Conceitos Patterns
-> AggregateRoot / Aggregate
+
+- AggregateRoot / Aggregate
     - Exemplo: 
         - Order -> OrderItem[]
         - Order -> Shipping
     - é interessante não criar vários Repositórios para persistir os Agregados.
     - no caso, o Agregado Root ele deve lidar também automaticamente em persistir todos os subagregados.
-> WatchedList
+- WatchedList
     - Exemplo: 
         - Question -> Attachment[]
     - Faz mais sentido na edição, pois teria que:
@@ -45,14 +93,11 @@
 
 - `npx tsc --noEmit` -> para ver erros TS
 
-> Subdomínios
+- Subdomínios
 
-- `Core`: o que dá dinheiro
-    - Exemplo: Compra, Catálogo, Pagamento, Entrega, Faturamento (NFE)
-- `Supporting`: dá suporte para o core funcionar
-    - Exemplo: Estoque
-- `Generic`: necessários, porém menos importantes
-    - Exemplo: Notificação ao cliente, Chat
-
-- ``
-- ``
+    - `Core`: o que dá dinheiro
+        - Exemplo: Compra, Catálogo, Pagamento, Entrega, Faturamento (NFE)
+    - `Supporting`: dá suporte para o core funcionar
+        - Exemplo: Estoque
+    - `Generic`: necessários, porém menos importantes
+        - Exemplo: Notificação ao cliente, Chat
