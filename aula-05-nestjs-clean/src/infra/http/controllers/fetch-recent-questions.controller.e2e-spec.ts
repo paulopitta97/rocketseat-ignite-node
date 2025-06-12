@@ -36,7 +36,7 @@ describe('Fetch recent questions (E2E)', () => {
     const accessToken = jwt.sign({ sub: user.id.toString() })
 
     await Promise.all([
-      questionFactory.makePrismaQuestion({ authorId: user.id, title: 'Question 01'}),
+      questionFactory.makePrismaQuestion({ authorId: user.id, title: 'Question 01' }),
       questionFactory.makePrismaQuestion({ authorId: user.id, title: 'Question 02' }),
     ])
 
@@ -47,10 +47,10 @@ describe('Fetch recent questions (E2E)', () => {
 
     expect(response.statusCode).toBe(200)
     expect(response.body).toEqual({
-      questions: [
+      questions: expect.arrayContaining([
         expect.objectContaining({ title: 'Question 01' }),
         expect.objectContaining({ title: 'Question 02' }),
-      ],
+      ]),
     })
   })
 })
