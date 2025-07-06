@@ -50,7 +50,7 @@
 - `pnpm prisma migrate dev`
 - ``
 
-
+- `pnpm i @types/multer -D`
 
 
 
