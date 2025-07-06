@@ -51,7 +51,7 @@
 - ``
 
 - `pnpm i @types/multer -D`
-
+- `pnpm i @aws-sdk/client-s3`
 
 
 
