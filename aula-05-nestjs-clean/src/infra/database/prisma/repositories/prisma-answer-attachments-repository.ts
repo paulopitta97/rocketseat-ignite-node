@@ -38,9 +38,7 @@ export class PrismaAnswerAttachmentsRepository
     })
   }
 
-  async findManyByAnswerId(
-    answerId: string,
-  ): Promise<AnswerAttachment[]> {
+  async findManyByAnswerId(answerId: string): Promise<AnswerAttachment[]> {
     const answerAttachments = await this.prisma.attachment.findMany({
       where: {
         answerId,

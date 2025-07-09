@@ -39,8 +39,7 @@ export class CreateAccountController {
       password,
     })
 
-
-    if( result.isFailure() ) {
+    if (result.isFailure()) {
       const error = result.value
 
       switch (error.constructor) {

@@ -23,7 +23,12 @@ describe('Get question by slug (E2E)', () => {
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule, DatabaseModule],
-      providers: [StudentFactory, QuestionFactory, AttachmentFactory, QuestionAttachmentFactory]
+      providers: [
+        StudentFactory,
+        QuestionFactory,
+        AttachmentFactory,
+        QuestionAttachmentFactory,
+      ],
     }).compile()
 
     app = moduleRef.createNestApplication()
@@ -39,15 +44,15 @@ describe('Get question by slug (E2E)', () => {
 
   test('[GET] /questions/:slug', async () => {
     const user = await studentFactory.makePrismaStudent({
-      name: 'John Doe'
+      name: 'John Doe',
     })
 
     const accessToken = jwt.sign({ sub: user.id.toString() })
 
     const question = await questionFactory.makePrismaQuestion({
-        authorId: user.id,
-        title: 'Question 01',
-        slug: Slug.create('question-01')
+      authorId: user.id,
+      title: 'Question 01',
+      slug: Slug.create('question-01'),
     })
 
     const attachment = await attachmentFactory.makePrismaAttachment({
@@ -72,8 +77,8 @@ describe('Get question by slug (E2E)', () => {
         attachments: [
           expect.objectContaining({
             title: 'Some attachment',
-          })
-        ]
+          }),
+        ],
       }),
     })
   })

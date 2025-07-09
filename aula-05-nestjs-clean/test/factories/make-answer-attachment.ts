@@ -42,4 +42,3 @@ export class AnswerAttachmentFactory {
     return answerAttachment
   }
 }
-

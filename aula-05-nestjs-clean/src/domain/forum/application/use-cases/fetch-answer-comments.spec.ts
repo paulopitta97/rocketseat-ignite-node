@@ -13,7 +13,9 @@ let sut: FetchAnswerCommentsUseCase
 describe('Fetch Answer Comments', () => {
   beforeEach(() => {
     inMemoryStudentsRepository = new InMemoryStudentsRepository()
-    inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository(inMemoryStudentsRepository)
+    inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository(
+      inMemoryStudentsRepository,
+    )
     sut = new FetchAnswerCommentsUseCase(inMemoryAnswerCommentsRepository)
   })
 
@@ -22,17 +24,17 @@ describe('Fetch Answer Comments', () => {
 
     inMemoryStudentsRepository.items.push(student)
 
-    const comment1 = makeAnswerComment({ 
+    const comment1 = makeAnswerComment({
       answerId: new UniqueEntityID('answer-1'),
       authorId: student.id,
     })
 
-    const comment2 = makeAnswerComment({ 
+    const comment2 = makeAnswerComment({
       answerId: new UniqueEntityID('answer-1'),
       authorId: student.id,
     })
 
-    const comment3 = makeAnswerComment({ 
+    const comment3 = makeAnswerComment({
       answerId: new UniqueEntityID('answer-1'),
       authorId: student.id,
     })
@@ -74,7 +76,7 @@ describe('Fetch Answer Comments', () => {
       await inMemoryAnswerCommentsRepository.create(
         makeAnswerComment({
           answerId: new UniqueEntityID('answer-1'),
-          authorId: student.id
+          authorId: student.id,
         }),
       )
     }

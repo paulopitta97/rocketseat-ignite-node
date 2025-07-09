@@ -9,7 +9,7 @@ export class InMemoryAnswerCommentsRepository
 {
   public items: AnswerComment[] = []
 
-  constructor(private studentsRepository: InMemoryStudentsRepository){}
+  constructor(private studentsRepository: InMemoryStudentsRepository) {}
 
   async create(answerComment: AnswerComment) {
     this.items.push(answerComment)
@@ -38,7 +38,10 @@ export class InMemoryAnswerCommentsRepository
     return answerComments
   }
 
-  async findManyByAnswerIdWithAuthor(answerId: string, { page }: PaginationParams) {
+  async findManyByAnswerIdWithAuthor(
+    answerId: string,
+    { page }: PaginationParams,
+  ) {
     const comments = this.items
       .filter((item) => item.answerId.toString() === answerId)
       .slice((page - 1) * 20, page * 20)
@@ -47,8 +50,10 @@ export class InMemoryAnswerCommentsRepository
           return student.id.equals(comment.authorId)
         })
 
-        if(!author) {
-          throw new Error(`Author with ID "${comment.authorId.toString()} does not exist`)
+        if (!author) {
+          throw new Error(
+            `Author with ID "${comment.authorId.toString()} does not exist`,
+          )
         }
 
         return CommentWithAuthor.create({

@@ -25,7 +25,7 @@ export class FetchRecentQuestionsController {
       page,
     })
 
-    if( result.isFailure() ) {
+    if (result.isFailure()) {
       throw new BadRequestException()
     }
 

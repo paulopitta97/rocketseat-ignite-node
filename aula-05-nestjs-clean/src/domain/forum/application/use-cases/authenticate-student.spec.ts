@@ -1,8 +1,8 @@
-import { makeStudent } from "test/factories/make-student"
-import { AuthenticateStudentUseCase } from "./authenticate-student"
-import { InMemoryStudentsRepository } from "test/repositories/in-memory-students-repository"
-import { FakeHasher } from "test/cryptography/fake-hasher"
-import { FakeEncrypter } from "test/cryptography/fake-encrypter"
+import { makeStudent } from 'test/factories/make-student'
+import { AuthenticateStudentUseCase } from './authenticate-student'
+import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
+import { FakeHasher } from 'test/cryptography/fake-hasher'
+import { FakeEncrypter } from 'test/cryptography/fake-encrypter'
 
 let inMemoryStudentsRepository: InMemoryStudentsRepository
 let fakeHasher: FakeHasher

@@ -22,7 +22,12 @@ describe('Edit question (E2E)', () => {
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule, DatabaseModule],
-      providers: [StudentFactory, QuestionFactory, AttachmentFactory, QuestionAttachmentFactory],
+      providers: [
+        StudentFactory,
+        QuestionFactory,
+        AttachmentFactory,
+        QuestionAttachmentFactory,
+      ],
     }).compile()
 
     app = moduleRef.createNestApplication()
@@ -69,10 +74,7 @@ describe('Edit question (E2E)', () => {
       .send({
         title: 'New title',
         content: 'New content',
-        attachments: [
-          attachment1.id.toString(),
-          attachment3.id.toString()
-        ]
+        attachments: [attachment1.id.toString(), attachment3.id.toString()],
       })
 
     expect(response.statusCode).toBe(204)
@@ -93,13 +95,15 @@ describe('Edit question (E2E)', () => {
     })
 
     expect(attachmentsOnDatabase).toHaveLength(2)
-    expect(attachmentsOnDatabase).toEqual(expect.arrayContaining([
-      expect.objectContaining({
-        id: attachment1.id.toString(),
-      }),
-      expect.objectContaining({
-        id: attachment3.id.toString(),
-      })
-    ]))
+    expect(attachmentsOnDatabase).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: attachment1.id.toString(),
+        }),
+        expect.objectContaining({
+          id: attachment3.id.toString(),
+        }),
+      ]),
+    )
   })
 })

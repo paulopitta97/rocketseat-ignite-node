@@ -8,7 +8,10 @@ import { AnswerAttachmentsRepository } from '@/domain/forum/application/reposito
 
 @Injectable()
 export class PrismaAnswersRepository implements AnswersRepository {
-  constructor(private prisma: PrismaService, private answerAttachmentsRepository: AnswerAttachmentsRepository) {}
+  constructor(
+    private prisma: PrismaService,
+    private answerAttachmentsRepository: AnswerAttachmentsRepository,
+  ) {}
 
   async findById(id: string): Promise<Answer | null> {
     const answer = await this.prisma.answer.findUnique({
@@ -44,7 +47,9 @@ export class PrismaAnswersRepository implements AnswersRepository {
       data,
     })
 
-    await this.answerAttachmentsRepository.createMany(answer.attachments.getItems())
+    await this.answerAttachmentsRepository.createMany(
+      answer.attachments.getItems(),
+    )
   }
 
   async save(answer: Answer): Promise<void> {
@@ -57,8 +62,12 @@ export class PrismaAnswersRepository implements AnswersRepository {
         },
         data,
       }),
-      this.answerAttachmentsRepository.createMany(answer.attachments.getNewItems()),
-      this.answerAttachmentsRepository.deleteMany(answer.attachments.getRemovedItems())
+      this.answerAttachmentsRepository.createMany(
+        answer.attachments.getNewItems(),
+      ),
+      this.answerAttachmentsRepository.deleteMany(
+        answer.attachments.getRemovedItems(),
+      ),
     ])
   }
 

@@ -1,9 +1,9 @@
-import { 
-  Body, 
-  Controller, 
-  Post, 
-  Param, 
-  BadRequestException
+import {
+  Body,
+  Controller,
+  Post,
+  Param,
+  BadRequestException,
 } from '@nestjs/common'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
 import { UserPayload } from '@/infra/auth/jwt.strategy'
@@ -21,9 +21,7 @@ type CommentOnAnswerBodySchema = z.infer<typeof commentOnAnswerBodySchema>
 
 @Controller('/answers/:answerId/comments')
 export class CommentOnAnswerController {
-  constructor(
-    private commentOnAnswer: CommentOnAnswerUseCase,
-  ) {}
+  constructor(private commentOnAnswer: CommentOnAnswerUseCase) {}
 
   @Post()
   async handle(

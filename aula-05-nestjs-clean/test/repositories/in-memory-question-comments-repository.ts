@@ -38,7 +38,10 @@ export class InMemoryQuestionCommentsRepository
     return questionComments
   }
 
-  async findManyByQuestionIdWithAuthor(questionId: string, { page }: PaginationParams) {
+  async findManyByQuestionIdWithAuthor(
+    questionId: string,
+    { page }: PaginationParams,
+  ) {
     const comments = this.items
       .filter((item) => item.questionId.toString() === questionId)
       .slice((page - 1) * 20, page * 20)
@@ -47,8 +50,10 @@ export class InMemoryQuestionCommentsRepository
           return student.id.equals(comment.authorId)
         })
 
-        if(!author) {
-          throw new Error(`Author with ID "${comment.authorId.toString()} does not exist`)
+        if (!author) {
+          throw new Error(
+            `Author with ID "${comment.authorId.toString()} does not exist`,
+          )
         }
 
         return CommentWithAuthor.create({

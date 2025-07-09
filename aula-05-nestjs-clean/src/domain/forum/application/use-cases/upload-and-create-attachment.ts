@@ -20,7 +20,10 @@ type UploadAndCreateAttachmentUseCaseResponse = Either<
 
 @Injectable()
 export class UploadAndCreateAttachmentUseCase {
-  constructor(private attachmentsRepository: AttachmentsRepository, private uploader: Uploader) {}
+  constructor(
+    private attachmentsRepository: AttachmentsRepository,
+    private uploader: Uploader,
+  ) {}
 
   async execute({
     fileName,
@@ -32,9 +35,9 @@ export class UploadAndCreateAttachmentUseCase {
     }
 
     const { url } = await this.uploader.upload({
-        fileName,
-        fileType,
-        body,
+      fileName,
+      fileType,
+      body,
     })
 
     const attachment = Attachment.create({

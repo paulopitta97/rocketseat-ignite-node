@@ -31,7 +31,7 @@ import { EnvModule } from '../env/env.module'
     EnvService,
     {
       provide: APP_GUARD,
-      useClass: JwtAuthGuard
+      useClass: JwtAuthGuard,
     },
   ],
 })

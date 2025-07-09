@@ -13,8 +13,9 @@ let sut: FetchQuestionCommentsUseCase
 describe('Fetch Question Comments', () => {
   beforeEach(() => {
     inMemoryStudentsRepository = new InMemoryStudentsRepository()
-    inMemoryQuestionCommentsRepository =
-      new InMemoryQuestionCommentsRepository(inMemoryStudentsRepository)
+    inMemoryQuestionCommentsRepository = new InMemoryQuestionCommentsRepository(
+      inMemoryStudentsRepository,
+    )
     sut = new FetchQuestionCommentsUseCase(inMemoryQuestionCommentsRepository)
   })
 
@@ -23,17 +24,17 @@ describe('Fetch Question Comments', () => {
 
     inMemoryStudentsRepository.items.push(student)
 
-    const comment1 = makeQuestionComment({ 
+    const comment1 = makeQuestionComment({
       questionId: new UniqueEntityID('question-1'),
       authorId: student.id,
     })
 
-    const comment2 = makeQuestionComment({ 
+    const comment2 = makeQuestionComment({
       questionId: new UniqueEntityID('question-1'),
       authorId: student.id,
     })
 
-    const comment3 = makeQuestionComment({ 
+    const comment3 = makeQuestionComment({
       questionId: new UniqueEntityID('question-1'),
       authorId: student.id,
     })
@@ -52,20 +53,20 @@ describe('Fetch Question Comments', () => {
       expect.arrayContaining([
         expect.objectContaining({
           // props: {
-            author: 'John Doe',
-            commentId: comment1.id,
+          author: 'John Doe',
+          commentId: comment1.id,
           // }
         }),
         expect.objectContaining({
           // props: {
-            author: 'John Doe',
-            commentId: comment2.id,
+          author: 'John Doe',
+          commentId: comment2.id,
           // }
         }),
         expect.objectContaining({
           // props: {
-            author: 'John Doe',
-            commentId: comment3.id,
+          author: 'John Doe',
+          commentId: comment3.id,
           // }
         }),
       ]),
@@ -79,7 +80,7 @@ describe('Fetch Question Comments', () => {
 
     for (let i = 1; i <= 22; i++) {
       await inMemoryQuestionCommentsRepository.create(
-        makeQuestionComment({ 
+        makeQuestionComment({
           questionId: new UniqueEntityID('question-1'),
           authorId: student.id,
         }),

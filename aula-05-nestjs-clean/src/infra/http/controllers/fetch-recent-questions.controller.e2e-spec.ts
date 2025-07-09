@@ -18,7 +18,7 @@ describe('Fetch recent questions (E2E)', () => {
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule, DatabaseModule],
-      providers: [StudentFactory, QuestionFactory]
+      providers: [StudentFactory, QuestionFactory],
     }).compile()
 
     app = moduleRef.createNestApplication()
@@ -36,8 +36,14 @@ describe('Fetch recent questions (E2E)', () => {
     const accessToken = jwt.sign({ sub: user.id.toString() })
 
     await Promise.all([
-      questionFactory.makePrismaQuestion({ authorId: user.id, title: 'Question 01' }),
-      questionFactory.makePrismaQuestion({ authorId: user.id, title: 'Question 02' }),
+      questionFactory.makePrismaQuestion({
+        authorId: user.id,
+        title: 'Question 01',
+      }),
+      questionFactory.makePrismaQuestion({
+        authorId: user.id,
+        title: 'Question 02',
+      }),
     ])
 
     const response = await request(app.getHttpServer())

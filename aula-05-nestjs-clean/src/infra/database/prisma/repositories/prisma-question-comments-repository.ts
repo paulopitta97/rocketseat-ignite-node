@@ -8,7 +8,9 @@ import { CommentWithAuthor } from '@/domain/forum/enterprise/entities/value-obje
 import { PrismaCommentWithAuthorMapper } from '../mappers/prisma-comment-with-author-mapper'
 
 @Injectable()
-export class PrismaQuestionCommentsRepository implements QuestionCommentsRepository {
+export class PrismaQuestionCommentsRepository
+  implements QuestionCommentsRepository
+{
   constructor(private prisma: PrismaService) {}
 
   async findById(id: string): Promise<QuestionComment | null> {

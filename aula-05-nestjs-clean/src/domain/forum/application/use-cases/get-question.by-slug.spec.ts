@@ -18,26 +18,26 @@ let sut: GetQuestionBySlugUseCase
 
 describe('Get Question By Slug', () => {
   beforeEach(() => {
-    inMemoryQuestionAttachmentsRepository = new InMemoryQuestionAttachmentsRepository()
+    inMemoryQuestionAttachmentsRepository =
+      new InMemoryQuestionAttachmentsRepository()
     inMemoryAttachmentsRepository = new InMemoryAttachmentsRepository()
     inMemoryStudentsRepository = new InMemoryStudentsRepository()
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
       inMemoryQuestionAttachmentsRepository,
       inMemoryAttachmentsRepository,
-      inMemoryStudentsRepository
+      inMemoryStudentsRepository,
     )
     sut = new GetQuestionBySlugUseCase(inMemoryQuestionsRepository)
   })
 
   test('it should be able to get a question by slug', async () => {
-
     const student = makeStudent({ name: 'John Doe' })
 
     inMemoryStudentsRepository.items.push(student)
 
-    const newQuestion = makeQuestion({ 
+    const newQuestion = makeQuestion({
       slug: Slug.create('example-question'),
-      authorId: student.id
+      authorId: student.id,
     })
     await inMemoryQuestionsRepository.create(newQuestion)
 
@@ -65,8 +65,8 @@ describe('Get Question By Slug', () => {
         attachments: [
           expect.objectContaining({
             title: 'Some attachment',
-          })
-        ]
+          }),
+        ],
       }),
     })
   })

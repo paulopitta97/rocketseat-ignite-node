@@ -44,8 +44,8 @@ describe('Comment on question (E2E)', () => {
     })
 
     const answer = await answerFactory.makePrismaAnswer({
-        questionId: question.id,
-        authorId: user.id
+      questionId: question.id,
+      authorId: user.id,
     })
 
     const answerId = answer.id.toString()

@@ -30,14 +30,14 @@ describe('Register Student', () => {
 
   it('should hash student password upon registration', async () => {
     const result = await sut.execute({
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        password: '123456',
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
     })
 
     const hashedPassword = await fakeHasher.hash('123456')
 
     expect(result.isSuccess()).toBe(true)
     expect(inMemoryStudentsRepository.items[0].password).toEqual(hashedPassword)
-    })
+  })
 })

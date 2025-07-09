@@ -22,9 +22,7 @@ type AuthenticateBodySchema = z.infer<typeof authenticateBodySchema>
 @Controller('/sessions')
 @Public()
 export class AuthenticateController {
-  constructor(
-    private authenticateStudent: AuthenticateStudentUseCase
-  ) {}
+  constructor(private authenticateStudent: AuthenticateStudentUseCase) {}
 
   @Post()
   @UsePipes(new ZodValidationPipe(authenticateBodySchema))
@@ -32,11 +30,11 @@ export class AuthenticateController {
     const { email, password } = body
 
     const result = await this.authenticateStudent.execute({
-      email, 
-      password
+      email,
+      password,
     })
 
-    if( result.isFailure() ) {
+    if (result.isFailure()) {
       const error = result.value
 
       switch (error.constructor) {

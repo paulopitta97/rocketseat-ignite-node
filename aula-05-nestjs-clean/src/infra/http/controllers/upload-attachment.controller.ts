@@ -4,11 +4,11 @@ import {
   MaxFileSizeValidator,
   FileTypeValidator,
   ParseFilePipe,
-  Controller, 
-  Post, 
-  UploadedFile, 
+  Controller,
+  Post,
+  UploadedFile,
   UseInterceptors,
-  BadRequestException
+  BadRequestException,
 } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
 
@@ -38,7 +38,7 @@ export class UploadAttachmentController {
     const result = await this.uploadAndCreateAttachment.execute({
       fileName: file.originalname,
       fileType: file.mimetype,
-      body: file.buffer
+      body: file.buffer,
     })
 
     if (result.isFailure()) {

@@ -1,4 +1,10 @@
-import { Controller, Post, Body, Param, BadRequestException } from '@nestjs/common'
+import {
+  Controller,
+  Post,
+  Body,
+  Param,
+  BadRequestException,
+} from '@nestjs/common'
 import { z } from 'zod'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'
 import { UserPayload } from '@/infra/auth/jwt.strategy'
@@ -7,7 +13,7 @@ import { ZodValidationPipe } from '../pipes/zod-validation-pipe'
 
 const answerQuestionBodySchema = z.object({
   content: z.string(),
-  attachments: z.array(z.string().uuid())
+  attachments: z.array(z.string().uuid()),
 })
 
 const bodyValidationPipe = new ZodValidationPipe(answerQuestionBodySchema)

@@ -1,4 +1,10 @@
-import { Controller, Delete, HttpCode, Param, BadRequestException } from '@nestjs/common'
+import {
+  Controller,
+  Delete,
+  HttpCode,
+  Param,
+  BadRequestException,
+} from '@nestjs/common'
 import { UserPayload } from '@/infra/auth/jwt.strategy'
 import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete-answer'
 import { CurrentUser } from '@/infra/auth/current-user-decorator'

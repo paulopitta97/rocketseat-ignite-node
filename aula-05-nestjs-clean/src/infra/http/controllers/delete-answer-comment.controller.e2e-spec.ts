@@ -8,7 +8,6 @@ import request from 'supertest'
 import { AnswerFactory } from 'test/factories/make-answer'
 import { AnswerCommentFactory } from 'test/factories/make-answer-comment'
 import { QuestionFactory } from 'test/factories/make-question'
-import { QuestionCommentFactory } from 'test/factories/make-question-comment'
 import { StudentFactory } from 'test/factories/make-student'
 
 describe('Delete answer comment (E2E)', () => {
@@ -23,7 +22,12 @@ describe('Delete answer comment (E2E)', () => {
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule, DatabaseModule],
-      providers: [StudentFactory, QuestionFactory, AnswerFactory, AnswerCommentFactory],
+      providers: [
+        StudentFactory,
+        QuestionFactory,
+        AnswerFactory,
+        AnswerCommentFactory,
+      ],
     }).compile()
 
     app = moduleRef.createNestApplication()
@@ -49,15 +53,14 @@ describe('Delete answer comment (E2E)', () => {
     })
 
     const answer = await answerFactory.makePrismaAnswer({
-        questionId: question.id,
-        authorId: user.id
+      questionId: question.id,
+      authorId: user.id,
     })
 
-    const answerComment =
-      await answerCommentFactory.makePrismaAnswerComment({
-        answerId: answer.id,
-        authorId: user.id
-      })
+    const answerComment = await answerCommentFactory.makePrismaAnswerComment({
+      answerId: answer.id,
+      authorId: user.id,
+    })
 
     const answerCommentId = answerComment.id.toString()
 
