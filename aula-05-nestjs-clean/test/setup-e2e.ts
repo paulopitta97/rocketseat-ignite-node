@@ -10,6 +10,7 @@ import { envSchema } from '@/infra/env/env'
 config({ path: '.env', override: true })
 config({ path: '.env.test', override: true })
 
+
 const env = envSchema.parse(process.env)
 
 const prisma = new PrismaClient()
@@ -21,11 +22,11 @@ const redis = new Redis({
 })
 
 function generateUniqueDatabaseURL(schemaId: string) {
-  if (!env.DATABASE_URL) {
+  if (!process.env.DATABASE_URL) {
     throw new Error('Please provide a DATABASE_URL environment variable.')
   }
 
-  const url = new URL(env.DATABASE_URL)
+  const url = new URL(process.env.DATABASE_URL)
   url.searchParams.set('schema', schemaId)
 
   return url.toString()
@@ -34,8 +35,9 @@ function generateUniqueDatabaseURL(schemaId: string) {
 const schemaId = randomUUID()
 
 beforeAll(async () => {
+
   const databaseURL = generateUniqueDatabaseURL(schemaId)
-  env.DATABASE_URL = databaseURL
+  process.env.DATABASE_URL = databaseURL
 
   DomainEvents.shouldRun = false
 
